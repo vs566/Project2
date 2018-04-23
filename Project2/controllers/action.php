@@ -1,17 +1,41 @@
 <?php
 session_start();
-if(isset($_SESSION['username']))
-{
-    header('Location: user.php');
+require "../models/db.php" ;
+
+$fname= $_POST["fname"];
+$lname= $_POST["lname"];
+$email= $_POST["email"];
+$phone= $_POST["phone"];
+$birthday= $_POST["birthday"];
+$gender= $_POST["gender"];
+$password= $_POST["password"];
+
+$_SESSION['fname'] = $fname;
+$_SESSION['lname'] = $lname;
+$_SESSION['email'] = $email;
+$_SESSION['phone'] = $phone;
+$_SESSION['birthday'] = $birthday;
+$_SESSION['gender'] = $gender;
+$_SESSION['password'] = $password;
+
+
+$sql = "select * from vs566.accounts where email = '$email'";
+$results = runQuery($sql);
+if (count($results) > 0) {
+    echo "Email is taken";
+} else {
+
+    $sql = "insert into accounts (email, fname, lname, phone, birthday, gender, password) values ('$email', '$fname', '$lname', '$phone', '$birthday', '$gender', '$password');";
+    $results = runQuery($sql);
+    echo 'User with email: ' . $email . ' has been created.';
+    require "../views/login.php";
+
 }
-else
-{
-    header('Location: views/login.php');
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +66,6 @@ else
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
   <body>
 
     <!-- Fixed navbar -->
@@ -70,13 +93,5 @@ else
     </nav>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

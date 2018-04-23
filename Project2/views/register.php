@@ -57,60 +57,27 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
-   <div class="container" >
-<div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-    <form method="post" action="controllers/action.php">
-      <h2>Please Sign Up <small>It's free and always will be.</small></h2>
-      <hr class="colorgraph">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group">
-                        <input type="text" name="fname" id="fname" class="form-control input-lg" placeholder="First Name" tabindex="1" required>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group">
-            <input type="text" name="lname" id="lname" class="form-control input-lg" placeholder="Last Name" tabindex="2" required>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="3" required>
-      </div>
-      <div class="form-group">
-        <input type="tel" name="phone" id="phone" class="form-control input-lg" placeholder="Phone (123-456-7890)" tabindex="4" required>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group">
-            <input type="Date" name="birthday" id="birthday" class="form-control" placeholder="mm/dd/yyyy" pattern="mms/dd/yyyy" tabindex="5" required>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group" class="form-control input-lg">
-            <select name="gender" required>
-              <option selected="true" disabled>Gender</option>
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-                <option value="O">Other</option>
-              </select>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="7" required>
-      </div>
-
-      <hr class="colorgraph">
-      <div class="row">
-        <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="8"></div>
-        <div class="col-xs-12 col-md-6"><a href="login.php" class="btn btn-success btn-block btn-lg">Have an Account?</a></div>
-      </div>
-    </form>
-  </div>
-</div>
+  <div class="container" >
+      <form method="post" action="../controllers/action.php">
+        <h2 class="form-signin-heading">Please sign in</h2>
+   			<label for="fname">First Name:</label>
+    		<input type="text" name="fname" id="fname" autofocus><br>
+    		<label for="lname">Last Name:</label>
+    		<input type="text" name="lname" id="lname"><br>
+    		<label for="email">Email:</label>
+    		<input type="text" name="email" id="email"><br>
+    		<label for="phone">Phone:</label>
+    		<input type="text" name="phone" id="phone"><br>
+    		<label for="dob">Date of Birth:</label>
+    		<input type="text" name="birthday" id="birthday"><br>
+    		<label for="gender">Gender:</label><br>
+    		<input type="radio" name="gender" value="male" checked> Male<br>
+    		<input type="radio" name="gender" value="female"> Female<br>
+    		<label for="password">Password:</label>
+    		<input type="text" name="password" id="password"><br>
+    		<input type="submit" value="Register">
+    		<input type="reset">
+    	</form>
 
     </div> <!-- /container -->
 

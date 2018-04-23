@@ -1,17 +1,36 @@
+
 <?php
 session_start();
-if(isset($_SESSION['username']))
-{
-    header('Location: user.php');
-}
-else
-{
-    header('Location: views/login.php');
+require "../models/db.php";
+$email= $_POST["email"];
+$password= $_POST["password"];
+$sql = "select * from vs566.accounts where email = '$email'";
+$results = runQuery($sql);
+if (count($results) < 1) {
+  echo "Email is incorrect";
+  require "../views/login.php";
+} else {
+  $sql = "select * from vs566.accounts where email = '$email' AND password = '$password'";
+  $results = runQuery($sql);
+  if (count($results) < 1) {
+    echo "Passowrd is incorrect";
+    require "../views/login.php";
+  } else {
+    $fname=$results[0]['fname'];
+    $lname=$results[0]['lname'];
+    $id=$results[0]['id'];
+    $_SESSION['fname'] = $fname;
+    $_SESSION['lname'] = $lname;
+    $_SESSION['email'] = $email;
+    $_SESSION['password'] = $password;
+    $_SESSION['ownerid'] = $id;
+    header("Location: ../views/todo.php");
+  }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,8 +60,7 @@ else
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-
+   </head>
   <body>
 
     <!-- Fixed navbar -->
@@ -69,14 +87,5 @@ else
       </div>
     </nav>
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
