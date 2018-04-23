@@ -75,12 +75,13 @@
     		<input type="radio" name="gender" value="female"> Female<br>
     		<label for="password">Password:</label>
     		<input type="text" name="password" id="password"><br>
-    	 <input type="submit" value="Register">
+    		  <input type="submit" value="Register">
     		<input type="reset">
     	</form>
 
     </div> <!-- /container -->
 
+<!--   comment -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
