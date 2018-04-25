@@ -1,3 +1,5 @@
+<?php date_default_timezone_set("America/New_York")?>
+
 <div id="about" class="container-fluid">
   <div class="row">
     <div class="col-sm-8">

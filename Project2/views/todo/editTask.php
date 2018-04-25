@@ -1,3 +1,5 @@
+<?php date_default_timezone_set("America/New_York")?>
+
 <div id="about" class="container-fluid">
   <div class="row">
     <div class="col-sm-8">
@@ -17,7 +19,7 @@
         </div>
         <div class="form-group">
           <label>Due Date:</label>
-          <input type="date" name="duedate" class="form-control" id="duedate" value="<?php echo date('Y-m-d', strtotime($task["createddate"])) ?>"/>
+          <input type="date" name="duedate" class="form-control" id="duedate" value="<?php echo date('Y-m-d', strtotime($task["duedate"])) ?>"/>
         </div>
         <div class="form-group">
           <input class="btn btn-success" type="submit" value="Finish Editing"/>

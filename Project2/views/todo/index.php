@@ -1,7 +1,7 @@
-<h1>
-  Welcome <?php
+<?php date_default_timezone_set("America/New_York")?>
 
-  echo $account["fname"] . " " . $account["lname"]; ?>
+<h1>
+  Welcome <?php echo $account["fname"] . " " . $account["lname"]; ?>
 </h1>
 
 <div class="container">
